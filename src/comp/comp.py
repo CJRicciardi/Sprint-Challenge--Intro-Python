@@ -21,51 +21,65 @@ humans = [
     Human("David", 31),
 ]
 
+
+
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with 'D':
 print("Starts with D:")
-a = []
+a = [d.name for d in humans if d.name[0] == 'D']
 print(a)
+
+# quit()
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = []
+b = [d.name for d in humans if d.name[-1] == 'e']
 print(b)
+
+# quit()
 
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
-c = []
+c = [d.name for d in humans if (d.name[0] == 'C') or (d.name[0] == 'D') or (d.name[0] == 'E') or (d.name[0] == 'F') or (d.name[0] == 'G')]
 print(c)
+
+# quit()
 
 # Write a list comprehension that creates a list of all the ages plus 10.
 print("Ages plus 10:")
-d = []
+d = [h.age + 10 for h in humans]
 print(d)
+
+# quit()
 
 # Write a list comprehension that creates a list of strings which are the name
 # joined to the age with a hyphen, for example "David-31", for all humans.
 print("Name hyphen age:")
-e = []
+e = [f"{h.name}-{h.age}" for h in humans]
 print(e)
+
+# quit()
 
 # Write a list comprehension that creates a list of tuples containing name and
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = []
+f = [(h.name, h.age) for h in humans if (h.age >= 27) and (h.age <= 32)]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = []
+name = [h.name.upper() for h in humans]
+age = [h.age + 5 for h in humans]
+g = [Human(name, age) for name, age in zip(name, age)]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
 import math
-h = []
+h = [math.sqrt(h.age) for h in humans]
 print(h)
